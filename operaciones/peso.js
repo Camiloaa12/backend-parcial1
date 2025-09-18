@@ -61,7 +61,8 @@ const convertirPeso = (valor, unidadOrigen, unidadDestino) => {
             throw new Error('Unidad de destino no válida');
     }
     
-    return resultado;
+    // Redondear el resultado a un número entero
+    return Math.round(resultado);
 };
 
 module.exports = {

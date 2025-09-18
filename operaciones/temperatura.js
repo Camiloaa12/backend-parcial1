@@ -4,14 +4,21 @@ const convertirTemperatura = (valor, unidadOrigen, unidadDestino) => {
     let valorEnCelsius;
     
     // Convertir a Celsius primero
-    switch (unidadOrigen) {
+    const unidadOrigenLower = unidadOrigen.toLowerCase();
+    
+    switch (unidadOrigenLower) {
         case 'celsius':
+        case 'c':
+        case '°c':
             valorEnCelsius = valor;
             break;
         case 'fahrenheit':
+        case 'f':
+        case '°f':
             valorEnCelsius = (valor - 32) * 5/9;
             break;
         case 'kelvin':
+        case 'k':
             valorEnCelsius = valor - 273.15;
             break;
         default:
@@ -20,21 +27,29 @@ const convertirTemperatura = (valor, unidadOrigen, unidadDestino) => {
     
     // Convertir de Celsius a la unidad destino
     let resultado;
-    switch (unidadDestino) {
+    const unidadDestinoLower = unidadDestino.toLowerCase();
+    
+    switch (unidadDestinoLower) {
         case 'celsius':
+        case 'c':
+        case '°c':
             resultado = valorEnCelsius;
             break;
         case 'fahrenheit':
+        case 'f':
+        case '°f':
             resultado = (valorEnCelsius * 9/5) + 32;
             break;
         case 'kelvin':
+        case 'k':
             resultado = valorEnCelsius + 273.15;
             break;
         default:
             throw new Error('Unidad de destino no válida');
     }
     
-    return resultado;
+    // Redondear el resultado a un número entero
+    return Math.round(resultado);
 };
 
 module.exports = {
