@@ -13,9 +13,9 @@ const convertirPesoController = (req, res) => {
         const resultado = convertirPeso(valor, unidadOrigen, unidadDestino);
         
         res.json({ 
-            valorOriginal: valor,
+            valorOriginal: parseInt(valor),
             unidadOrigen,
-            valorConvertido: resultado,
+            valorConvertido: parseInt(resultado),
             unidadDestino
         });
     } catch (error) {

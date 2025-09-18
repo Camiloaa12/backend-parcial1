@@ -13,9 +13,9 @@ const convertirMonedaController = (req, res) => {
         const resultado = convertirMoneda(valor, unidadOrigen, unidadDestino);
         
         res.json({ 
-            valorOriginal: valor,
+            valorOriginal: parseInt(valor),
             unidadOrigen,
-            valorConvertido: resultado,
+            valorConvertido: parseInt(resultado),
             unidadDestino
         });
     } catch (error) {
