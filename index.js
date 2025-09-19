@@ -8,10 +8,14 @@ const temperaturaRoutes = require('./routes/temperaturaRoutes');
 const monedaRoutes = require('./routes/monedaRoutes');
 
 const app = express();
-const PORT = process.env.PORT || 5173;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+    origin: '*',
+    methods: ['GET', 'POST'],
+    credentials: true
+}));
 app.use(express.json());
 
 // Configurar rutas
